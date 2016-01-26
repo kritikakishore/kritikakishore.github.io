@@ -263,16 +263,6 @@ fieldset[disabled] .btn-xl.active {
 }
 
 header {
-/*
-    background-image: url(../img/header-bg.jpg);
-    background-repeat: none;
-    background-attachment: scroll;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-*/
     text-align: center;
     color: #fff
 }
@@ -895,7 +885,7 @@ ul.social-buttons li a:active {
 }
 
 .portfolio-modal .modal-content img {
-    margin-bottom: 30px
+/*    margin-bottom: 30px*/
 }
 
 .portfolio-modal .close-modal {
@@ -959,3 +949,36 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #fed136
 }
+
+/* ---- grid ---- */
+
+.grid {
+/*    background: #EEE;*/
+/*    max-width: 1200px;*/
+}
+
+/* clearfix */
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+/*    height: 120px;*/
+    float: left;
+/*    background: #D26;*/
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.grid-item--width2 { width:  40%; }
+.grid-item--width3 { width:  60%; }
+
+.grid-item--height2 { height: 200px; }
+.grid-item--height3 { height: 260px; }
+.grid-item--height4 { height: 360px; }
