@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/marshal_styles.css" />
+<title>Marshal</title>
+</head>
+
+<body>
+
+<h1>Marshal: Bricks</h1>
+<div class="cards_wrapper">
+	<a href="#"><img class="card" src="images/IMG_1013.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1017.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1033.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1041.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1725.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1736.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1741.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1758.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1820.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1013.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1017.jpg" alt="" /></a>
+</div>
+
+<h1>Marshal: Cards</h1>
+<div class="cards_wrapper">
+	<a href="#"><img class="card" src="images/IMG_1013.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1017.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1033.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1041.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1725.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1736.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1741.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1758.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1820.jpg" alt="" /></a>
+	<a href="#"><img class="card" src="images/IMG_1013.jpg" alt="" /></a>
+    <a href="#"><img class="card" src="images/IMG_1017.jpg" alt="" /></a>
+    </div>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="js/marshal.js"></script>
+
+<script>
+
+$(window).load(function (){
+
+    var newCards = marshal({
+        wrapper: '.cards_wrapper',
+        troops: '.card',
+        formation: 'cards',
+        breakpoints: [400, 750, 1050],
+        gutter: 20
+    });
+
+    var newBricks = marshal({
+        wrapper: '#bricks_wrapper',
+        troops: '.brick',
+        formation: 'bricks',
+    });
+
+
+});//end window .load
+
+
+</script>
+
+
+</body>
+</html>

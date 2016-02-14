@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'SignPainter';
+    src: url('../fonts/signpainter-housescript-webfont.eot');
+    src: url('../fonts/signpainter-housescript-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/signpainter-housescript-webfont.woff2') format('woff2'),
+        url('../fonts/signpainter-housescript-webfont.woff') format('woff'),
+        url('../fonts/signpainter-housescript-webfont.ttf') format('truetype'),
+        url('../fonts/signpainter-housescript-webfont.svg#signpaintermedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
     overflow-x: hidden;
     font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -257,7 +270,7 @@ fieldset[disabled] .btn-xl.active {
         margin-top: -45px;
     }
     .navbar-default.navbar-shrink .navbar-logo {
-        height: 200px;
+        height: 79px;
         margin-top: -30px;
     }
 }
@@ -271,7 +284,7 @@ header .home_carousel {
     position: absolute;
     top: 0;
     width: 100%;
-    max-height: 600px;
+    max-height: 1080px;
     z-index: -1;
 }
 
@@ -308,13 +321,15 @@ header .intro-text .intro-heading {
 }
 
 @media (min-width:768px) {
+/*
     header .home_carousel {
         position: absolute;
         top: 0;
         width: 100%;
-        max-height: 600px;
+        max-height: 1080px;
         z-index: -1;
     }
+*/
     header .home_carousel img {
         width: 100%;
         min-height: 600px;
@@ -484,17 +499,17 @@ section h3.section-subheading {
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     padding: 0 15px;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: 'SignPainter';
+}
+
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+    font-size: 36px;
 }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
-}
-
-.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-    font-size: 18px;
 }
 
 .portfolio-box:hover .portfolio-box-caption {
@@ -505,9 +520,8 @@ section h3.section-subheading {
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
         font-size: 16px;
     }
-
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-        font-size: 22px;
+        font-size: 63px;
     }
 }
 
@@ -970,10 +984,12 @@ body {
 /*    height: 120px;*/
     float: left;
 /*    background: #D26;*/
+/*
     border: 2px solid #333;
     border-color: hsla(0, 0%, 0%, 0.5);
     border-radius: 5px;
-    margin: 20px;
+*/
+    margin: 5px;
 }
 
 .grid-item--width2 { width:  40%; }
@@ -982,3 +998,25 @@ body {
 .grid-item--height2 { height: 200px; }
 .grid-item--height3 { height: 260px; }
 .grid-item--height4 { height: 360px; }
+
+
+/* ------- marshal -------*/
+.cards_wrapper,
+.bricks_wrapper {
+    box-sizing: border-box !important;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    visibility: hidden;/* hidden initially to stop fullsize images displaying */
+}
+.card,
+.brick {
+    position: absolute !important;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
