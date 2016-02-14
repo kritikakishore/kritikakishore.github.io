@@ -124,7 +124,7 @@
         <!-- Intro Text -->
         <div class="container">
             <div class="intro-text">
-                <a href="#portfolio" class="page-scroll btn btn-xl">Know More</a>
+                <a href="#about" class="page-scroll btn btn-xl">Know More</a>
             </div>
         </div>
     </header>
@@ -188,7 +188,7 @@
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h4><strong>Kritika Kishore Photography</strong>
                     </h4>
-                    <p>Chittaranjan, New Delhi</p>
+                    <p>Chittaranjan Park, New Delhi</p>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-phone fa-fw"></i> <a href="tel:+919599312065">+91-95993-12065</a></li>
                         <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:kritikakishorephotography@gmail.com">kritikakishorephotography@gmail.com</a>
@@ -221,7 +221,8 @@
     <!-- Lightbox2 -->
     <script src="lightbox2/js/lightbox.min.js"></script>
     <!-- Masonry -->
-    <script src="js/masonry.pkgd.min.js"></script>
+    <!--    <script src="js/masonry.pkgd.min.js"></script>-->
+    <script src="js/marshal.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
@@ -261,6 +262,11 @@
     <script id="portfolioCoverTemplate" type="text/x-jquery-template">
         <div class="container-fluid">
             <div class="row no-gutter">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Portfolio</h2>
+                </div>
+            </div>
+            <div class="row no-gutter">
                 {{each covers}}
                 <div class="col-lg-4 col-sm-6">
                     <a href="#portfolioModal${$index}" class="portfolio-box" data-toggle="modal">
@@ -294,14 +300,12 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2>${title}</h2>
-                                <div class="grid">
+                                <div id="portfolioDiv${indexNumber}" class="cards_wrapper">
                                     {{each albumPhotos}}
-                                    <div class="grid-item">
-                                        <a class="portfolio-image-link" href="${src}" data-lightbox="${title}-set" data-title="Click the right half of the image to move forward."><img class="portfolio-image" src="${thumb}" alt="" /></a>
-                                    </div>
+                                    <a class="portfolio-image-link" href="${src}" data-lightbox="${title}-set" data-title="Click the right half of the image to move forward."><img class="card card${indexNumber}" id="portfolioImage${indexNumber}_${$index}" src="${thumb}" alt="" /></a>
                                     {{/each}}
                                 </div>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                             </div>
                         </div>
                     </div>
@@ -373,6 +377,7 @@
                     album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243679437335351169?authkey=Gv1sRgCNr8irO89fPV6QE"
                 }
             ];
+            var portfolioCoversIndex = 0;
             $.each(portfolioCovers, function (indexCtr, portfolioCover) {
                 var newPhotoURL = portfolioCover.src;
                 var splitUrlArray = newPhotoURL.split('/');
@@ -402,11 +407,16 @@
                                 var newPhotoURL = this.content.src;
                                 var splitUrlArray = newPhotoURL.split('/');
                                 var fileName = splitUrlArray.pop();
-                                newPhotoURL = splitUrlArray.join('/') + '/s' + Math.ceil($(window).width() / 1.5) + '/' + fileName;
-                                var thumb = this.media$group.media$thumbnail[2].url;
+                                var portfolioImageWidth;
+                                if (screenWidth >= 544)
+                                    portfolioImageWidth = Math.ceil(screenWidth / 2);
+                                else
+                                    portfolioImageWidth = screenWidth;
+                                newPhotoURL = splitUrlArray.join('/') + '/s' + portfolioImageWidth + '/' + fileName;
+//                                var thumb = splitUrlArray.join('/') + '/s' + Math.ceil($(window).width() / 2); + '/' + fileName;
                                 albumPhotos.push({
                                     src: newPhotoURL,
-                                    thumb: thumb
+                                    thumb: newPhotoURL
                                 });
                             });
                             $('#portfolioModalTemplate').tmpl({
@@ -414,8 +424,24 @@
                                 albumPhotos: albumPhotos,
                                 indexNumber: indexNumber
                             }).appendTo('body');
+                            $('#portfolioImage' + indexNumber + '_' + (albumPhotos.length - 1)).load(function () {
+                                var newCards = marshal({
+                                    wrapper: '#portfolioDiv' + indexNumber,
+                                    troops: '.card' + indexNumber,
+                                    formation: 'cards',
+                                    breakpoints: [400, 750, 1050],
+                                    gutter: 20
+                                });
+                            });
                         },
                         error: function () {
+                            var newCards = marshal({
+                                wrapper: '#portfolioDiv' + indexNumber,
+                                troops: '.card' + indexNumber,
+                                formation: 'cards',
+                                breakpoints: [400, 750, 1050],
+                                gutter: 20
+                            });
                             alert('failed to get' + title + ' ;(');
                         }
                     });
@@ -425,17 +451,17 @@
                 covers: portfolioCovers
             }).appendTo('#portfolio');
 
-            var grids = $('.grid').masonry({
-                itemSelector: '.grid-item',
-                columnWidth: '.grid-sizer',
-                percentPosition: true
-            });
+            //                        .masonry({
+            //                itemSelector: '.grid-item',
+            //                columnWidth: '.grid-sizer',
+            //                percentPosition: true
+            //            });
             // layout Masonry after each image loads
-            $.each(grids, function () {
-                this.imagesLoaded().progress(function () {
-                    $grid.masonry('layout');
-                });
-            });
+            //            $.each(grids, function () {
+            //                this.imagesLoaded().progress(function () {
+            //                    $grid.masonry('layout');
+            //                });
+            //            });
         });
     </script>
     <!-- Contact Form JavaScript -->

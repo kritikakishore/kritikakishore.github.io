@@ -1,0 +1,19 @@
+.cards_wrapper,
+.bricks_wrapper {
+    box-sizing: border-box !important;
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	visibility: hidden;/* hidden initially to stop fullsize images displaying */
+}
+.card,
+.brick {
+    position: absolute !important;
+    display: block;
+	box-sizing: border-box;
+	text-align: center;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
