@@ -303,6 +303,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <img id="loader${indexNumber}" src="img/loader.gif">
                                     <div id="portfolioDiv${indexNumber}" class="cards_wrapper">
 
                                     </div>
@@ -453,6 +454,7 @@
                                     $('.card' + indexNumber).load(function () {
                                         ++loaded;
                                         if (loaded == imageCount) {
+                                            $('#loader'+indexNumber).hide();
                                             marshal({
                                                 wrapper: '#portfolioDiv' + indexNumber,
                                                 troops: '.card' + indexNumber,

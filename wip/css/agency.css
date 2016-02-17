@@ -509,7 +509,8 @@ section h3.section-subheading {
     font-family: 'SignPainter';
 }
 
-.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
+.portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name
+.modal-body h2 {
     font-size: 36px;
 }
 
@@ -528,7 +529,7 @@ section h3.section-subheading {
         font-size: 16px;
     }
     .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name,
-    .portfolio-modal .modal-dialog .modal-content h2 {
+    .modal-body h2 {
         font-size: 63px;
     }
 }
