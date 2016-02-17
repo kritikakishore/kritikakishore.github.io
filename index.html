@@ -1,51 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:website="http://ogp.me/ns/website" lang="en">
+<html lang="en">
 
 <head>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta http-equiv="imagetoolbar" content="no" />
-
-    <!-- kritikakishore -->
-    <base href="">
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Kritika Kishore Photography</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="canonical" href="http://kritikakishorephotography.com/">
-    <meta property="og:site_name" content="Kritika Kishore Photography">
-    <meta property="og:title" content="Wedding, Event, Travel, Infant, &amp; Commercial photography">
-    <meta property="og:url" content="http://kritikakishorephotography.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="Candid Wedding, Travel, Couple, Infant &amp; Child photography for individuals. Dynamic product advertising photography for marketing campaigns from liquids, drinks, products, industry to concept images.">
-    <meta itemprop="name" content="Wedding, Event, Travel, Infant, &amp; Commercial photography">
-    <meta itemprop="url" content="http://kritikakishorephotography.com/">
-    <meta itemprop="description" content="Candid Wedding, Travel, Couple, Infant &amp; Child photography for individuals. Dynamic product advertising photography for marketing campaigns from liquids, drinks, products, industry to concept images.">
-    <meta name="twitter:title" content="Wedding, Event, Travel, Infant, &amp; Commercial photography">
-    <meta name="twitter:url" content="http://kritikakishorephotography.com/">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:description" content="Candid Wedding, Travel, Couple, Infant &amp; Child photography for individuals. Dynamic product advertising photography for marketing campaigns from liquids, drinks, products, industry to concept images.">
-    <meta name="description" content="Candid Wedding, Travel, Couple, Infant &amp; Child photography for individuals. Dynamic product advertising photography for marketing campaigns from liquids, drinks, products, industry to concept images.">
-    <meta name="author" content="SidKuku">
 
     <!-- Bootstrap Core CSS -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Lightbox2 -->
+    <link href="lightbox2/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -56,7 +44,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -66,29 +54,437 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body>
-    <div class="container-fluid text-center">
-        <div class="row top-buffer text-bold">
-            <h1><strong>We are <span class="highlight">Updating!</span></strong></h1>
+<body id="page-top" class="index">
+    <!-- Facebook SDK-->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container" style="margin:0;width:100%">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><img src="img/logo.png" class="img-responsive navbar-logo" alt=""></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a href="#page-top">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#whatsnew">What's New</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div class="row text-bold">
-            <a href="https://www.facebook.com/kritikakishorephotography">
-                <img class="img-responsive img-centered hero-logo" src="img/logo.png" alt="Kritika Kishor Photography">
-            </a>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <!-- Slider -->
+        <div class="container-fluid home_carousel">
+            <div class="row">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                </div>
+            </div>
         </div>
-        <div class="row text-bold">
-            <h1 class="left-buffer right-buffer">Meanwhile, kindly visit us below</h1>
-            <a href="https://www.facebook.com/kritikakishorephotography">
-                <h1 class="highlight dont-break-out">
-                    <span class="fa-stack">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-facebook fa-stack-1x fa-fw text-white"></i>
-                    </span>
-                    <span class="left-buffer right-buffer">facebook.com/kritikakishorephotography</span>
-                </h1>
-            </a>
+    </header>
+    <!-- Intro Text -->
+    <div class="container-fluid text-center hidden-xs">
+        <div class="intro-text">
+            <a href="#about" class="page-scroll btn btn-xl">Know More</a>
         </div>
     </div>
+    <!-- About Section -->
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row padding-top-100">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-6 hidden-md hidden-lg text-center">
+                    <h2 class="section-heading text-white">About</h2>
+                </div>
+                <img id="aboutHeader" class="img-responseive hidden-md hidden-lg" />
+                <div class="col-sm-6 col-sm-offset-6 text-justify">
+                    <p class="text-muted">For as long as I can remember, I have been fascinated by photographs.</p>
+                    <br/>
+                    <p class="text-muted">From the heart warming tears of a father when his daughter becomes a bride to the awe inspiring moment when the morning Sun makes an appearance in the Himalayan landscape. Our ability to preserve an instance in time, to capture light from a moment and convert it into an everlasting memory, I believe, is nothing short of magic.</p>
+                    <br/>
+                    <p class="text-muted">I have pursued this magic in all its forms. From directing films to travelling with photography lovers around the country, weddings to historical monuments, portraits to events, product to fashion spreads, I am excited to frame them all, I enjoy lighting them all and I love to shoot them all.</p>
+                    <br/>
+                    <p class="text-muted">I think myself to be extremely fortunate that photography, which was my childhood obsession, turned into passion has now become my full time profession.</p>
+                    <br/>
+                    <p class="text-center">- Kritika -</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="no-padding" id="portfolio">
+
+    </section>
+    <!-- What's New Section -->
+    <section id="whatsnew" class="bg-darkest-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading text-white">What's New?</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="section-subheading text-muted" style="margin:0"><a href="https://www.facebook.com/kritikakishorephotography"><i class="fa fa-facebook fa-fw fa-3x"></i>Facebook</a></h3>
+                    <div class="fb-page" data-href="https://www.facebook.com/kritikakishorephotography" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="https://www.facebook.com/kritikakishorephotography"><a href="https://www.facebook.com/kritikakishorephotography">Kritika Kishore Photography</a></blockquote>
+                        </div>
+                    </div>
+                </div>
+                <!-- INSTANSIVE WIDGET -->
+                <div class="col-sm-6" style="height:548px;overflow:hidden">
+                    <h3 class="section-subheading text-muted" style="margin:0"><a href="https://instagram.com/kritika_kishore_photography/"><i class="fa fa-instagram fa-fw fa-3x"></i>Instagram</a></h3>
+                    <script src="//instansive.com/widget/js/instansive.js"></script><iframe src="//instansive.com/widgets/0f8266235a24587f983241a21e9590a7.html" id="instansive_0f8266235a" name="instansive_0f8266235a"  scrolling="no" allowtransparency="true" class="instansive-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Kritika Kishore Photography</strong>
+                    </h4>
+                    <p>Chittaranjan Park, New Delhi</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> <a href="tel:+919599312065">+91-95993-12065</a></li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:kritika.kishore.photography@gmail.com">kritika.kishore.photography@gmail.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/kritikakishorephotography"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/KKPhot"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/kritika_kishore_phonography/"><i class="fa fa-instagram fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Kritika Kishore Photography 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Lightbox2 -->
+    <script src="lightbox2/js/lightbox.min.js"></script>
+    <!-- Masonry -->
+    <!--    <script src="js/masonry.pkgd.min.js"></script>-->
+    <script src="js/marshal.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+    <script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    <script id="headerTemplate" type="text/x-jquery-template">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            {{each photos}}
+            <li data-target="#carousel-example-generic" data-slide-to="${$index}" {{if $index==0 }}class="active" {{/if}}>
+            </li>
+            {{/each}}
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            {{each photos}}
+            <div class="item {{if $index == 0}}active{{/if}}">
+                <img src="${src}" alt="...">
+            </div>
+            {{/each}}
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </script>
+    <script id="portfolioCoverTemplate" type="text/x-jquery-template">
+        <div class="container-fluid">
+            <div class="row padding-top-100">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Portfolio</h2>
+                </div>
+            </div>
+            <div class="row no-gutter">
+                {{each covers}}
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="#portfolioModal${$index}" class="portfolio-box" data-toggle="modal">
+                        <img src="${src}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-name">
+                                    ${title}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </script>
+    <script id="portfolioModalTemplate" type="text/x-jquery-template">
+        <!-- Portfolio Modal ${indexNumber} -->
+        <div class="portfolio-modal modal fade" id="portfolioModal${indexNumber}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-fill">
+                <div class="modal-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here -->
+                                    <h2>${title}</h2>
+                                    <div class="close-modal" data-dismiss="modal">
+                                        <div class="lr">
+                                            <div class="rl">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img id="loader${indexNumber}" src="img/loader.gif">
+                                    <div id="portfolioDiv${indexNumber}" class="cards_wrapper">
+
+                                    </div>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="portfolioModalGrid" type="text/x-jquery-template">
+        {{each albumPhotos}}
+        <a class="portfolio-image-link" href="${src}" data-lightbox="${title}-set" data-title="Click the right half of the image to move forward.">
+            <img class="card card${indexNumber}" id="portfolioImage${indexNumber}_${$index}" src="${thumb}" alt="" />
+        </a>
+        {{/each}}
+    </script>
+    <!-- Picasa -->
+    <script type="text/javascript">
+        $(function () {
+            var viewportWidth = $(window).width();
+            var headerHeight = (viewportWidth * 9 / 16) + (viewportWidth < 768 ? 50 : 0);
+            var aboutImage = 'https://lh3.googleusercontent.com/-_AUMwYGfDfs/VsRM9UX9fzI/AAAAAAAAGwE/bhNQ1-t6i2o/s' + viewportWidth + '/about-bg.jpg';
+            $('header').css('height', headerHeight + 'px');
+            if (viewportWidth >= 544) {
+                $('section#about').css('background-image', 'url(' + aboutImage + ')');
+            } else {
+                $('#aboutHeader').attr('src', aboutImage);
+            }
+            // Setup header image carousel
+            $.ajax({
+                dataType: 'jsonp',
+                url: 'https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243667294581233393?authkey=Gv1sRgCNzKuYD-p6XCsQE',
+                data: {
+                    alt: 'json-in-script',
+                },
+                jsonpCallback: 'picasaCallback',
+                success: function (data) {
+                    var photos = [];
+                    $.each(data.feed.entry, function () {
+                        var newPhotoURL = this.content.src;
+                        var splitUrlArray = newPhotoURL.split('/');
+                        var fileName = splitUrlArray.pop();
+                        newPhotoURL = splitUrlArray.join('/') + '/s' + $(window).width() + '/' + fileName;
+                        photos.push({
+                            src: newPhotoURL
+                        });
+                    });
+                    $('#headerTemplate').tmpl({
+                        photos: photos
+                    }).appendTo('#carousel-example-generic');
+                },
+                error: function () {
+                    alert('failed ;(');
+                }
+            });
+
+            // Setup portfolio covers
+            var portfolioCovers = [
+                {
+                    title: "Wedding",
+                    src: "https://lh3.googleusercontent.com/-jn_JPmxYZqw/VqXzLBNIJkI/AAAAAAAAGtU/k1ccSzkM-o4/WEDDINGS.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243683892038447025?authkey=Gv1sRgCNHpkPmjtp7EWg"
+                },
+                {
+                    title: "Event",
+                    src: "https://lh3.googleusercontent.com/-cs43DLlWZoQ/VqXzSXlCTFI/AAAAAAAAGtU/-BRg_7gUQhc/EVENTS.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243708199812297457?authkey=Gv1sRgCJu-39j34tDAlQE"
+                },
+                {
+                    title: "Travel",
+                    src: "https://lh3.googleusercontent.com/-RFfxkHu_fzg/VqXzCdavtRI/AAAAAAAAGtU/GACFRUa9W6w/TRAVEL.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243672863964420545?authkey=Gv1sRgCL-P4bDiyv6ewQE"
+                },
+                {
+                    title: "Couples",
+                    src: "https://lh3.googleusercontent.com/-CZL_bXkeqQE/VqX2SQrk1sI/AAAAAAAAGtU/B1MK5i5uYuU/COUPLE.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243662120407107201?authkey=Gv1sRgCL3-n9Cy_eeE5gE"
+                },
+                {
+                    title: "Infant &amp; Child",
+                    src: "https://lh3.googleusercontent.com/-tbV4Pu0-iJM/VqXzWD6keuI/AAAAAAAAGtU/dHF_gLBBXEM/CHILD.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243671052029491521?authkey=Gv1sRgCLiUwe3gs874IA"
+                },
+                {
+                    title: "Commercial",
+                    src: "https://lh3.googleusercontent.com/-HCsepE4aKqc/VqX2MSWF2UI/AAAAAAAAGtU/hjFuheBwtSM/COMMERCIAL.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243679437335351169?authkey=Gv1sRgCNr8irO89fPV6QE"
+                }
+            ];
+            var newCards = [];
+
+            $.each(portfolioCovers, function (indexCtr, portfolioCover) {
+                var newPhotoURL = portfolioCover.src;
+                var splitUrlArray = newPhotoURL.split('/');
+                var fileName = splitUrlArray.pop();
+                var coverWidth, screenWidth = $(window).width();
+                if (screenWidth >= 992)
+                    coverWidth = Math.ceil(screenWidth / 3);
+                else if (screenWidth >= 768)
+                    coverWidth = Math.ceil(screenWidth / 2);
+                else
+                    coverWidth = screenWidth;
+                newPhotoURL = splitUrlArray.join('/') + '/s' + coverWidth + '/' + fileName;
+                portfolioCover.src = newPhotoURL;
+                // Setup portfolio modal
+                // Called as closure to access external params
+                (function (album, title, indexNumber) {
+                    $('#portfolioModalTemplate').tmpl({
+                        title: title,
+                        indexNumber: indexNumber
+                    }).appendTo('body');
+
+                    $('#portfolioModal' + indexNumber).on('shown.bs.modal', function () {
+                        if (!newCards[indexNumber]) {
+                            $.ajax({
+                                dataType: 'jsonp',
+                                url: album,
+                                data: {
+                                    alt: 'json-in-script',
+                                },
+                                //                        jsonpCallback: 'picasaCallback',
+                                success: function (data) {
+                                    var albumPhotos = [];
+                                    $.each(data.feed.entry, function () {
+                                        var newPhotoURL = this.content.src;
+                                        var splitUrlArray = newPhotoURL.split('/');
+                                        var fileName = splitUrlArray.pop();
+                                        var portfolioImageWidth;
+                                        if (screenWidth >= 544)
+                                            portfolioImageWidth = Math.ceil(screenWidth / 2);
+                                        else
+                                            portfolioImageWidth = screenWidth;
+                                        newPhotoURL = splitUrlArray.join('/') + '/s' + portfolioImageWidth + '/' + fileName;
+                                        albumPhotos.push({
+                                            src: newPhotoURL,
+                                            thumb: newPhotoURL
+                                        });
+                                    });
+                                    $('#portfolioModalGrid').tmpl({
+                                        albumPhotos: albumPhotos,
+                                        indexNumber: indexNumber
+                                    }).appendTo('#portfolioDiv' + indexNumber);
+                                    var imageCount = albumPhotos.length;
+                                    var loaded = 0;
+                                    $('.card' + indexNumber).load(function () {
+                                        ++loaded;
+                                        if (loaded == imageCount) {
+                                            $('#loader'+indexNumber).hide();
+                                            marshal({
+                                                wrapper: '#portfolioDiv' + indexNumber,
+                                                troops: '.card' + indexNumber,
+                                                formation: 'cards',
+                                                breakpoints: [400, 750, 1050],
+                                                gutter: 10
+                                            });
+                                        }
+                                    });
+                                    newCards[indexNumber] = $('.card' + indexNumber);
+                                },
+                                error: function () {
+                                    alert('failed to get' + title + ' ;(');
+                                }
+                            });
+                        }
+                    });
+                })(portfolioCover.album, portfolioCover.title, indexCtr);
+            });
+            $('#portfolioCoverTemplate').tmpl({
+                covers: portfolioCovers
+            }).appendTo('#portfolio');
+        });
+    </script>
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+
 </body>
 
 </html>
