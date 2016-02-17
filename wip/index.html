@@ -220,8 +220,6 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    <!-- jquery.lazy(); -->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.6.5/jquery.lazy.min.js"></script>
     <!-- Lightbox2 -->
     <script src="lightbox2/js/lightbox.min.js"></script>
     <!-- Masonry -->
@@ -319,7 +317,9 @@
     </script>
     <script id="portfolioModalGrid" type="text/x-jquery-template">
         {{each albumPhotos}}
-        <a class="portfolio-image-link" href="${src}" data-lightbox="${title}-set" data-title="Click the right half of the image to move forward."><img class="card card${indexNumber}" id="portfolioImage${indexNumber}_${$index}" data-src="${thumb}" alt="" /></a>
+        <a class="portfolio-image-link" href="${src}" data-lightbox="${title}-set" data-title="Click the right half of the image to move forward.">
+            <img class="card card${indexNumber}" id="portfolioImage${indexNumber}_${$index}" src="${thumb}" alt="" />
+        </a>
         {{/each}}
     </script>
     <!-- Picasa -->
@@ -413,53 +413,61 @@
                 // Setup portfolio modal
                 // Called as closure to access external params
                 (function (album, title, indexNumber) {
-                    $.ajax({
-                        dataType: 'jsonp',
-                        url: album,
-                        data: {
-                            alt: 'json-in-script',
-                        },
-                        //                        jsonpCallback: 'picasaCallback',
-                        success: function (data) {
-                            var albumPhotos = [];
-                            $.each(data.feed.entry, function () {
-                                var newPhotoURL = this.content.src;
-                                var splitUrlArray = newPhotoURL.split('/');
-                                var fileName = splitUrlArray.pop();
-                                var portfolioImageWidth;
-                                if (screenWidth >= 544)
-                                    portfolioImageWidth = Math.ceil(screenWidth / 2);
-                                else
-                                    portfolioImageWidth = screenWidth;
-                                newPhotoURL = splitUrlArray.join('/') + '/s' + portfolioImageWidth + '/' + fileName;
-                                //                                var thumb = splitUrlArray.join('/') + '/s' + Math.ceil($(window).width() / 2); + '/' + fileName;
-                                albumPhotos.push({
-                                    src: newPhotoURL,
-                                    thumb: newPhotoURL
-                                });
+                    $('#portfolioModalTemplate').tmpl({
+                        title: title,
+                        indexNumber: indexNumber
+                    }).appendTo('body');
+
+                    $('#portfolioModal' + indexNumber).on('shown.bs.modal', function () {
+                        if (!newCards[indexNumber]) {
+                            $.ajax({
+                                dataType: 'jsonp',
+                                url: album,
+                                data: {
+                                    alt: 'json-in-script',
+                                },
+                                //                        jsonpCallback: 'picasaCallback',
+                                success: function (data) {
+                                    var albumPhotos = [];
+                                    $.each(data.feed.entry, function () {
+                                        var newPhotoURL = this.content.src;
+                                        var splitUrlArray = newPhotoURL.split('/');
+                                        var fileName = splitUrlArray.pop();
+                                        var portfolioImageWidth;
+                                        if (screenWidth >= 544)
+                                            portfolioImageWidth = Math.ceil(screenWidth / 2);
+                                        else
+                                            portfolioImageWidth = screenWidth;
+                                        newPhotoURL = splitUrlArray.join('/') + '/s' + portfolioImageWidth + '/' + fileName;
+                                        albumPhotos.push({
+                                            src: newPhotoURL,
+                                            thumb: newPhotoURL
+                                        });
+                                    });
+                                    $('#portfolioModalGrid').tmpl({
+                                        albumPhotos: albumPhotos,
+                                        indexNumber: indexNumber
+                                    }).appendTo('#portfolioDiv' + indexNumber);
+                                    var imageCount = albumPhotos.length;
+                                    var loaded = 0;
+                                    $('.card' + indexNumber).load(function () {
+                                        ++loaded;
+                                        if (loaded == imageCount) {
+                                            marshal({
+                                                wrapper: '#portfolioDiv' + indexNumber,
+                                                troops: '.card' + indexNumber,
+                                                formation: 'cards',
+                                                breakpoints: [400, 750, 1050],
+                                                gutter: 10
+                                            });
+                                        }
+                                    });
+                                    newCards[indexNumber] = $('.card' + indexNumber);
+                                },
+                                error: function () {
+                                    alert('failed to get' + title + ' ;(');
+                                }
                             });
-                            $('#portfolioModalTemplate').tmpl({
-                                title: title,
-//                                albumPhotos: albumPhotos,
-                                indexNumber: indexNumber
-                            }).appendTo('body');
-                            $('#portfolioModal' + indexNumber).on('shown.bs.modal', function () {
-                                $('#portfolioModalGrid').tmpl({
-//                                  title: title,
-                                  albumPhotos: albumPhotos,
-                                  indexNumber: indexNumber
-                                }).appendTo('#portfolioDiv' + indexNumber);
-                                newCards[indexNumber] = marshal({
-                                    wrapper: '#portfolioDiv' + indexNumber,
-                                    troops: '.card' + indexNumber,
-                                    formation: 'cards',
-                                    breakpoints: [400, 750, 1050],
-                                    gutter: 10
-                                });
-                            });
-                        },
-                        error: function () {
-                            alert('failed to get' + title + ' ;(');
                         }
                     });
                 })(portfolioCover.album, portfolioCover.title, indexCtr);
