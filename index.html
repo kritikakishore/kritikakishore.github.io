@@ -120,20 +120,22 @@
                 </div>
             </div>
         </div>
-
-        <!-- Intro Text -->
-        <div class="container">
-            <div class="intro-text">
-                <a href="#about" class="page-scroll btn btn-xl">Know More</a>
-            </div>
-        </div>
     </header>
-
+    <!-- Intro Text -->
+    <div class="container-fluid text-center hidden-xs">
+        <div class="intro-text">
+            <a href="#about" class="page-scroll btn btn-xl">Know More</a>
+        </div>
+    </div>
     <!-- About Section -->
     <!-- About -->
     <section id="about" class="about">
         <div class="container">
             <div class="row padding-top-100">
+                <div class="col-xs-12 hidden-md hidden-lg hidden-sm text-center">
+                    <h2 class="section-heading text-white">About</h2>
+                </div>
+                <img id="aboutHeader" class="img-responseive hidden-md hidden-lg" />
                 <div class="col-sm-6 col-sm-offset-6 text-justify">
                     <p class="text-muted">For as long as I can remember, I have been fascinated by photographs.</p>
                     <br/>
@@ -251,11 +253,11 @@
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
         </a>
     </script>
@@ -318,6 +320,16 @@
     <!-- Picasa -->
     <script type="text/javascript">
         $(function () {
+            var viewportWidth = $(window).width();
+            var headerHeight = (viewportWidth*9/16) + (viewportWidth < 768 ? 50 : 0);
+            var aboutImage = 'https://lh3.googleusercontent.com/-_AUMwYGfDfs/VsRM9UX9fzI/AAAAAAAAGwE/bhNQ1-t6i2o/s'+viewportWidth+'/about-bg.jpg';
+            $('header').css('height',headerHeight + 'px');
+            if(viewportWidth >= 544){
+                $('section#about').css('background-image','url('+aboutImage+')');
+            }
+            else{
+                $('#aboutHeader').attr('src', aboutImage);
+            }
             // Setup header image carousel
             $.ajax({
                 dataType: 'jsonp',
@@ -386,9 +398,9 @@
                 var splitUrlArray = newPhotoURL.split('/');
                 var fileName = splitUrlArray.pop();
                 var coverWidth, screenWidth = $(window).width();
-                if (screenWidth >= 768)
+                if (screenWidth >= 992)
                     coverWidth = Math.ceil(screenWidth / 3);
-                else if (screenWidth >= 544)
+                else if (screenWidth >= 768)
                     coverWidth = Math.ceil(screenWidth / 2);
                 else
                     coverWidth = screenWidth;

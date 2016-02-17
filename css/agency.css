@@ -233,7 +233,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-logo {
-    height: 165px;
+    height: 80px;
     margin-top: -15px;
 }
 
@@ -274,7 +274,7 @@ fieldset[disabled] .btn-xl.active {
 
 header {
     text-align: center;
-    color: #fff
+    color: #fff;
 }
 
 header .home_carousel {
@@ -283,11 +283,12 @@ header .home_carousel {
     width: 100%;
     max-height: 1080px;
     z-index: -1;
+    padding-top: 50px;
 }
 
 header .home_carousel img {
     width: 100%;
-    min-height: 600px;
+    height: 100%;
 }
 
 header .home_carousel .carousel-control.left,
@@ -295,12 +296,13 @@ header .home_carousel .carousel-control.right {
     display: none;
 }
 
-header .intro-text {
-    padding-top: 580px;
+.intro-text {
+    margin-top: -75px;
+/*    padding-top: 580px;*/
     padding-bottom: 20px
 }
 
-header .intro-text .intro-lead-in {
+.intro-text .intro-lead-in {
     font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-size: 22px;
@@ -308,7 +310,7 @@ header .intro-text .intro-lead-in {
     margin-bottom: 25px
 }
 
-header .intro-text .intro-heading {
+.intro-text .intro-heading {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
@@ -318,31 +320,26 @@ header .intro-text .intro-heading {
 }
 
 @media (min-width:768px) {
-    /*
     header .home_carousel {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        max-height: 1080px;
-        z-index: -1;
+        padding-top: 0;
     }
-*/
+
     header .home_carousel img {
         width: 100%;
         min-height: 600px;
     }
-    header .intro-text {
-        padding-top: 580px;
+    .intro-text {
+        margin-top: -125px;
         padding-bottom: 20px
     }
-    header .intro-text .intro-lead-in {
+    .intro-text .intro-lead-in {
         font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-style: italic;
         font-size: 40px;
         line-height: 40px;
         margin-bottom: 25px
     }
-    header .intro-text .intro-heading {
+    .intro-text .intro-heading {
         font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-transform: uppercase;
         font-weight: 700;
@@ -362,7 +359,13 @@ header .intro-text .intro-heading {
 }
 
 .padding-top-100{
-    padding-top: 100px;
+    padding-top: 75px;
+}
+
+@media (min-width:768px) {
+    .padding-top-100{
+        padding-top: 100px;
+    }
 }
 
 section {
@@ -725,7 +728,6 @@ section h3.section-subheading {
 
 section#about {
     background-color: #222;
-    background-image: url(../img/about-bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
