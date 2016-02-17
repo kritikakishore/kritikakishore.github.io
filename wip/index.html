@@ -193,7 +193,7 @@
                     <p>Chittaranjan Park, New Delhi</p>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-phone fa-fw"></i> <a href="tel:+919599312065">+91-95993-12065</a></li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:kritikakishorephotography@gmail.com">kritikakishorephotography@gmail.com</a>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:kritika.kishore.photography@gmail.com">kritika.kishore.photography@gmail.com</a>
                         </li>
                     </ul>
                     <br>
@@ -220,6 +220,8 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+    <!-- jquery.lazy(); -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.6.5/jquery.lazy.min.js"></script>
     <!-- Lightbox2 -->
     <script src="lightbox2/js/lightbox.min.js"></script>
     <!-- Masonry -->
@@ -304,9 +306,7 @@
                                         </div>
                                     </div>
                                     <div id="portfolioDiv${indexNumber}" class="cards_wrapper">
-                                        {{each albumPhotos}}
-                                        <a class="portfolio-image-link" href="${src}" data-lightbox="${title}-set" data-title="Click the right half of the image to move forward."><img class="card card${indexNumber}" id="portfolioImage${indexNumber}_${$index}" src="${thumb}" alt="" /></a>
-                                        {{/each}}
+
                                     </div>
                                     <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                                 </div>
@@ -317,17 +317,21 @@
             </div>
         </div>
     </script>
+    <script id="portfolioModalGrid" type="text/x-jquery-template">
+        {{each albumPhotos}}
+        <a class="portfolio-image-link" href="${src}" data-lightbox="${title}-set" data-title="Click the right half of the image to move forward."><img class="card card${indexNumber}" id="portfolioImage${indexNumber}_${$index}" data-src="${thumb}" alt="" /></a>
+        {{/each}}
+    </script>
     <!-- Picasa -->
     <script type="text/javascript">
         $(function () {
             var viewportWidth = $(window).width();
-            var headerHeight = (viewportWidth*9/16) + (viewportWidth < 768 ? 50 : 0);
-            var aboutImage = 'https://lh3.googleusercontent.com/-_AUMwYGfDfs/VsRM9UX9fzI/AAAAAAAAGwE/bhNQ1-t6i2o/s'+viewportWidth+'/about-bg.jpg';
-            $('header').css('height',headerHeight + 'px');
-            if(viewportWidth >= 544){
-                $('section#about').css('background-image','url('+aboutImage+')');
-            }
-            else{
+            var headerHeight = (viewportWidth * 9 / 16) + (viewportWidth < 768 ? 50 : 0);
+            var aboutImage = 'https://lh3.googleusercontent.com/-_AUMwYGfDfs/VsRM9UX9fzI/AAAAAAAAGwE/bhNQ1-t6i2o/s' + viewportWidth + '/about-bg.jpg';
+            $('header').css('height', headerHeight + 'px');
+            if (viewportWidth >= 544) {
+                $('section#about').css('background-image', 'url(' + aboutImage + ')');
+            } else {
                 $('#aboutHeader').attr('src', aboutImage);
             }
             // Setup header image carousel
@@ -436,11 +440,15 @@
                             });
                             $('#portfolioModalTemplate').tmpl({
                                 title: title,
-                                albumPhotos: albumPhotos,
+//                                albumPhotos: albumPhotos,
                                 indexNumber: indexNumber
                             }).appendTo('body');
                             $('#portfolioModal' + indexNumber).on('shown.bs.modal', function () {
-                                //                                $('#portfolioImage' + indexNumber + '_' + (albumPhotos.length - 1)).load(function () {
+                                $('#portfolioModalGrid').tmpl({
+//                                  title: title,
+                                  albumPhotos: albumPhotos,
+                                  indexNumber: indexNumber
+                                }).appendTo('#portfolioDiv' + indexNumber);
                                 newCards[indexNumber] = marshal({
                                     wrapper: '#portfolioDiv' + indexNumber,
                                     troops: '.card' + indexNumber,
@@ -448,7 +456,6 @@
                                     breakpoints: [400, 750, 1050],
                                     gutter: 10
                                 });
-                                //                                });
                             });
                         },
                         error: function () {

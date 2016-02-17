@@ -275,6 +275,7 @@ fieldset[disabled] .btn-xl.active {
 header {
     text-align: center;
     color: #fff;
+    height: 600px;
 }
 
 header .home_carousel {
@@ -364,7 +365,7 @@ header .home_carousel .carousel-control.right {
 
 @media (min-width:768px) {
     .padding-top-100{
-        padding-top: 100px;
+        padding-top: 85px;
     }
 }
 
