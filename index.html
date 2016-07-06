@@ -332,7 +332,7 @@
         $(function () {
             var viewportWidth = $(window).width();
             var headerHeight = (viewportWidth * 9 / 16) + (viewportWidth < 768 ? 50 : 0);
-            var aboutImage = 'https://lh3.googleusercontent.com/-_AUMwYGfDfs/VsRM9UX9fzI/AAAAAAAAGwE/bhNQ1-t6i2o/s' + viewportWidth + '/about-bg.jpg';
+            var aboutImage = 'https://lh3.googleusercontent.com/-Vpv5hctDDDs/V3TjxRQi88I/AAAAAAAAFLQ/2Iv7H4OFsrgGxkLlk_wqIcKzUDvw1tS-wCCo/s' + viewportWidth + '/twin.jpg';
             $('header').css('height', headerHeight + 'px');
             if (viewportWidth >= 544) {
                 $('section#about').css('background-image', 'url(' + aboutImage + ')');
@@ -342,7 +342,7 @@
             // Setup header image carousel
             $.ajax({
                 dataType: 'jsonp',
-                url: 'https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243667294581233393?authkey=Gv1sRgCNzKuYD-p6XCsQE',
+                url: 'https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6301910941373429169?authkey=Gv1sRgCPzektySvYqI9QE',
                 data: {
                     alt: 'json-in-script',
                 },
@@ -371,33 +371,39 @@
             var portfolioCovers = [
                 {
                     title: "Wedding",
-                    src: "https://lh3.googleusercontent.com/-jn_JPmxYZqw/VqXzLBNIJkI/AAAAAAAAGtU/k1ccSzkM-o4/WEDDINGS.JPG",
-                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243683892038447025?authkey=Gv1sRgCNHpkPmjtp7EWg"
+                    src: "https://lh3.googleusercontent.com/-JkwEgECl21o/V3TaWpwXq_I/AAAAAAAAFLE/jjc9pG-j-hEve32oQfekjPEh__IJtJ-RQCHM/WEDDINGS.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6301904620686770369?authkey=Gv1sRgCIn0xtyu-euQ1QE"
                 },
                 {
                     title: "Event",
-                    src: "https://lh3.googleusercontent.com/-cs43DLlWZoQ/VqXzSXlCTFI/AAAAAAAAGtU/-BRg_7gUQhc/EVENTS.JPG",
-                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243708199812297457?authkey=Gv1sRgCJu-39j34tDAlQE"
+                    src: "https://lh3.googleusercontent.com/-2Q7Toyads_k/V3Tcarti2NI/AAAAAAAAFLE/yEhmNBnah2oxMPBewXpiG8Wy0My9WcXXQCHM/EVENTS.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6301908163651740369?authkey=Gv1sRgCM7R8b6ii6S3Kw"
                 },
                 {
                     title: "Travel",
-                    src: "https://lh3.googleusercontent.com/-RFfxkHu_fzg/VqXzCdavtRI/AAAAAAAAGtU/GACFRUa9W6w/TRAVEL.JPG",
-                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243672863964420545?authkey=Gv1sRgCL-P4bDiyv6ewQE"
+                    src: "https://lh3.googleusercontent.com/-wscIarar8as/V3TaVbLqCGI/AAAAAAAAFLE/JErDCFCC_AAM7GbaIjX5agjGtMc_QMZwQCHM/TRAVEL.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6301902474297206241?authkey=Gv1sRgCKy91_mqz_W3Vg"
                 },
-                {
-                    title: "Couples",
-                    src: "https://lh3.googleusercontent.com/-CZL_bXkeqQE/VqX2SQrk1sI/AAAAAAAAGtU/B1MK5i5uYuU/COUPLE.JPG",
-                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243662120407107201?authkey=Gv1sRgCL3-n9Cy_eeE5gE"
+//                {
+//                    title: "Couples",
+//                    src: "https://lh3.googleusercontent.com/-CZL_bXkeqQE/VqX2SQrk1sI/AAAAAAAAGtU/B1MK5i5uYuU/COUPLE.JPG",
+//                    album: "https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6243662120407107201?authkey=Gv1sRgCL3-n9Cy_eeE5gE"
+//                },
+                 {
+                    title: "Food",
+                    src: "https://lh3.googleusercontent.com/-vEy-h-5fNQg/V3Tad8JakXI/AAAAAAAAFLE/u2GOgchSiG4pAfMkQuAQ1FdpcptDLiZowCHM/FOOD%2BDP%2B3.2_.jpg",
+                    album: "https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6301898426534207505?authkey=Gv1sRgCNGx-5XW_LDhTQ"
                 },
                 {
                     title: "Infant &amp; Child",
+                    src: "https://lh3.googleusercontent.com/-PBB64DWtrkM/V3TaRCcJa_I/AAAAAAAAFLE/ImuxAQn6H-c5VRo0-1Wni7NSTWU--_56gCHM/CHILD.JPG",
                     src: "https://lh3.googleusercontent.com/-tbV4Pu0-iJM/VqXzWD6keuI/AAAAAAAAGtU/dHF_gLBBXEM/CHILD.JPG",
-                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243671052029491521?authkey=Gv1sRgCLiUwe3gs874IA"
+                    album: "https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6301909628128691793?authkey=Gv1sRgCJey6oDbwPTNBQ"
                 },
                 {
-                    title: "Commercial",
-                    src: "https://lh3.googleusercontent.com/-HCsepE4aKqc/VqX2MSWF2UI/AAAAAAAAGtU/hjFuheBwtSM/COMMERCIAL.JPG",
-                    album: "https://picasaweb.google.com/data/feed/api/user/116134959689430291822/albumid/6243679437335351169?authkey=Gv1sRgCNr8irO89fPV6QE"
+                    title: "Product",
+                    src: "https://lh3.googleusercontent.com/-vUTJHWoki4M/V3TaSSpghsI/AAAAAAAAFLE/5dBP3ZOvTlcObgTgHUukDnWgUEiQ45WBwCHM/COMMERCIAL.JPG",
+                    album: "https://picasaweb.google.com/data/feed/api/user/110181159539523869024/albumid/6301899548277279521?authkey=Gv1sRgCLmToZiL-5WAUg"
                 }
             ];
             var newCards = [];
